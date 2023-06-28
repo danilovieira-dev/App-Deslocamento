@@ -1,95 +1,61 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
 
-export default function Home() {
+import React from 'react';
+import DashBoard from '../components/layout'
+import NextLink from 'next/link';
+import { Typography, Button, Grid, Box } from '@mui/material';
+import Image from 'next/image';
+
+
+
+
+const Home: React.FC = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      
+      <DashBoard>
+         <Grid container spacing={10}>
+      <Grid item xl={6}>
+        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="normal"  height="80vh" padding={3}>
+          <Typography variant="h4" align='center' paddingBottom={11}  gutterBottom>
+            Menu:
+          </Typography>
+          <Box display="flex" flexDirection="column" gap={6}>
+            <NextLink href="/clientes" passHref>
+              <Button variant="contained" color="primary" fullWidth component="a">
+                Clientes
+              </Button>
+            </NextLink>
+            <NextLink href="/condutores" passHref>
+              <Button variant="contained" color="primary" fullWidth component="a">
+                Condutores
+              </Button>
+            </NextLink>
+            <NextLink href="/deslocamento" passHref>
+              <Button variant="contained" color="primary" fullWidth component="a">
+                Deslocamento
+              </Button>
+            </NextLink>
+            <NextLink href="/veiculos" passHref>
+              <Button variant="contained" color="primary" fullWidth component="a">
+                Veículos
+              </Button>
+            </NextLink>
+          </Box>
+        </Box>
+      </Grid>
+      <Grid item xs={6}>
+        <Box display="flex" flexDirection="column" justifyContent="center"  alignItems="center" height="103vh">
+          <Typography variant="h4" align="center" paddingBottom={7}  gutterBottom>
+            Bem-vindo!
+          </Typography>
+          <Image src="/background.jpg" alt="background" width={800} height={500} />
+        </Box>
+      </Grid>
+    </Grid>
+      </DashBoard>
+         
+ );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+export default Home;
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
